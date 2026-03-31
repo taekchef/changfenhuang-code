@@ -9,7 +9,7 @@ const thinkbackPlay = {
   description: 'Play the thinkback animation',
   isEnabled: () =>
     checkStatsigFeatureGate_CACHED_MAY_BE_STALE('tengu_thinkback'),
-  isHidden: true,
+  isHidden: false /* changfenhuang-code: unhidden */,
   supportsNonInteractive: false,
   load: () => import('./thinkback-play.js'),
 } satisfies Command

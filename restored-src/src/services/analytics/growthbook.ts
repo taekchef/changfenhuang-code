@@ -731,10 +731,57 @@ export async function getFeatureValue_DEPRECATED<T>(
  * This is the preferred method for startup-critical paths and sync contexts.
  * The value may be stale if the cache was written by a previous process.
  */
+/**
+ * [changfenhuang-code] Global feature gate overrides - ALL FEATURES UNLOCKED
+ * Maps gate names to their forced values.
+ * - Enable gates → true
+ * - Kill-switch/disable gates → false (so the feature stays ON)
+ */
+const CHANGFENHUANG_GATE_OVERRIDES: Record<string, unknown> = {
+  // === Enable gates (force ON) ===
+  tengu_scratch: true,
+  tengu_tool_pear: true,
+  tengu_amber_json_tools: true,
+  tengu_slate_prism: true,
+  tengu_surreal_dali: true,
+  tengu_remote_backend: true,
+  tengu_cobalt_lantern: true,
+  tengu_streaming_tool_execution2: true,
+  tengu_plan_mode_interview_phase: true,
+  tengu_keybinding_customization_release: true,
+  tengu_kairos_cron: true,
+  tengu_kairos_cron_durable: true,
+  tengu_lodestone_enabled: true,
+  tengu_passport_quail: true,
+  tengu_slate_thimble: true,
+  tengu_chrome_auto_enable: true,
+  tengu_ccr_bridge: true,
+  tengu_bridge_repl_v2: true,
+  tengu_bridge_repl_v2_cse_shim_enabled: true,
+  tengu_cobalt_harbor: true,
+  tengu_ccr_mirror: true,
+  tengu_pewter_ledger: 'trim',
+  tengu_ultraplan_model: true,
+  tengu_willow_mode: 'hint_v2',
+  tengu_auto_mode_config: { allowModels: ['changfenhuang-opus-4-6', 'changfenhuang-sonnet-4-6'] },
+  tengu_thinkback: true,
+  // === Kill-switch / disable gates (force OFF so features stay enabled) ===
+  tengu_amber_quartz_disabled: false,
+  tengu_amber_flint: true,
+  tengu_penguins_off: false,
+  tengu_marble_sandcastle: true,
+  tengu_miraculo_the_bard: false,
+}
+
 export function getFeatureValue_CACHED_MAY_BE_STALE<T>(
   feature: string,
   defaultValue: T,
 ): T {
+  // [changfenhuang-code] Check hardcoded overrides first
+  if (feature in CHANGFENHUANG_GATE_OVERRIDES) {
+    return CHANGFENHUANG_GATE_OVERRIDES[feature] as T
+  }
+
   // Check env var overrides first (for eval harnesses)
   const overrides = getEnvOverrides()
   if (overrides && feature in overrides) {
@@ -804,6 +851,11 @@ export function getFeatureValue_CACHED_WITH_REFRESH<T>(
 export function checkStatsigFeatureGate_CACHED_MAY_BE_STALE(
   gate: string,
 ): boolean {
+  // [changfenhuang-code] Check hardcoded overrides first
+  if (gate in CHANGFENHUANG_GATE_OVERRIDES) {
+    return Boolean(CHANGFENHUANG_GATE_OVERRIDES[gate])
+  }
+
   // Check env var overrides first (for eval harnesses)
   const overrides = getEnvOverrides()
   if (overrides && gate in overrides) {

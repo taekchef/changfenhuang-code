@@ -12,7 +12,7 @@ const rateLimitOptions = {
 
     return true
   },
-  isHidden: true, // Hidden from help - only used internally
+  isHidden: false /* changfenhuang-code: unhidden */, // Hidden from help - only used internally
   load: () => import('./rate-limit-options.js'),
 } satisfies Command
 

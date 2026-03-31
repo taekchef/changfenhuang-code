@@ -64,3 +64,19 @@ test("cli version is branded as Changfenhuang Code", () => {
   assert.match(versionOutput, /Changfenhuang Code/);
   assert.doesNotMatch(versionOutput, /\bClaude Code\b/);
 });
+
+test("distribution does not ship an unused cli sourcemap", () => {
+  const cliSource = fs.readFileSync(cliPath, "utf8");
+  const cliSourceMapPath = path.join(repoRoot, "package", "cli.js.map");
+
+  assert.equal(
+    cliSource.includes("sourceMappingURL=cli.js.map"),
+    false,
+    "Expected cli.js to avoid referencing a sourcemap we do not ship",
+  );
+  assert.equal(
+    fs.existsSync(cliSourceMapPath),
+    false,
+    "Expected package/cli.js.map to be absent so GitHub installs do not carry a huge unused file",
+  );
+});

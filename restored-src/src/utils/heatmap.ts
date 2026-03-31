@@ -177,8 +177,8 @@ function getIntensity(
   return 1
 }
 
-// Changfenhuang orange color (hex #da7756)
-const changfenhuangOrange = chalk.hex('#da7756')
+// Changfenhuang slime green color
+const changfenhuangOrange = chalk.hex('#77c878')
 
 function getHeatmapChar(intensity: number): string {
   switch (intensity) {

@@ -115,8 +115,8 @@ export type ThemeSetting = (typeof THEME_SETTINGS)[number]
 const lightTheme: Theme = {
   autoAccept: 'rgb(135,0,255)', // Electric violet
   bashBorder: 'rgb(255,0,135)', // Vibrant pink
-  changfenhuang: 'rgb(215,119,87)', // Changfenhuang orange
-  changfenhuangShimmer: 'rgb(245,149,117)', // Lighter changfenhuang orange for shimmer effect
+  changfenhuang: 'rgb(119,200,120)', // Changfenhuang slime green
+  changfenhuangShimmer: 'rgb(149,225,150)', // Lighter changfenhuang orange for shimmer effect
   changfenhuangBlue_FOR_SYSTEM_SPINNER: 'rgb(87,105,247)', // Medium blue for system spinner
   changfenhuangBlueShimmer_FOR_SYSTEM_SPINNER: 'rgb(117,135,255)', // Lighter blue for system spinner shimmer
   permission: 'rgb(87,105,247)', // Medium blue
@@ -158,7 +158,7 @@ const lightTheme: Theme = {
   // Chrome colors
   chromeYellow: 'rgb(251,188,4)', // Chrome yellow
   // TUI V2 colors
-  clawd_body: 'rgb(215,119,87)',
+  clawd_body: 'rgb(119,200,120)',
   clawd_background: 'rgb(0,0,0)',
   userMessageBackground: 'rgb(240, 240, 240)', // Slightly darker grey for optimal contrast
   userMessageBackgroundHover: 'rgb(252, 252, 252)', // ≥250 to quantize distinct from base at 256-color level
@@ -169,11 +169,11 @@ const lightTheme: Theme = {
   memoryBackgroundColor: 'rgb(230, 245, 250)',
   rate_limit_fill: 'rgb(87,105,247)', // Medium blue
   rate_limit_empty: 'rgb(39,47,111)', // Dark blue
-  fastMode: 'rgb(255,106,0)', // Electric orange
+  fastMode: 'rgb(255,106,0)', // Electric slime green
   fastModeShimmer: 'rgb(255,150,50)', // Lighter orange for shimmer
   // Brief/assistant mode
   briefLabelYou: 'rgb(37,99,235)', // Blue
-  briefLabelChangfenhuang: 'rgb(215,119,87)', // Brand orange
+  briefLabelChangfenhuang: 'rgb(119,200,120)', // Brand slime green
   rainbow_red: 'rgb(235,95,87)',
   rainbow_orange: 'rgb(245,139,87)',
   rainbow_yellow: 'rgb(250,195,95)',
@@ -197,7 +197,7 @@ const lightTheme: Theme = {
 const lightAnsiTheme: Theme = {
   autoAccept: 'ansi:magenta',
   bashBorder: 'ansi:magenta',
-  changfenhuang: 'ansi:redBright',
+  changfenhuang: 'ansi:greenBright',
   changfenhuangShimmer: 'ansi:yellowBright',
   changfenhuangBlue_FOR_SYSTEM_SPINNER: 'ansi:blue',
   changfenhuangBlueShimmer_FOR_SYSTEM_SPINNER: 'ansi:blueBright',
@@ -225,14 +225,14 @@ const lightAnsiTheme: Theme = {
   diffAddedDimmed: 'ansi:green',
   diffRemovedDimmed: 'ansi:red',
   diffAddedWord: 'ansi:greenBright',
-  diffRemovedWord: 'ansi:redBright',
+  diffRemovedWord: 'ansi:greenBright',
   // Agent colors
   red_FOR_SUBAGENTS_ONLY: 'ansi:red',
   blue_FOR_SUBAGENTS_ONLY: 'ansi:blue',
   green_FOR_SUBAGENTS_ONLY: 'ansi:green',
   yellow_FOR_SUBAGENTS_ONLY: 'ansi:yellow',
   purple_FOR_SUBAGENTS_ONLY: 'ansi:magenta',
-  orange_FOR_SUBAGENTS_ONLY: 'ansi:redBright',
+  orange_FOR_SUBAGENTS_ONLY: 'ansi:greenBright',
   pink_FOR_SUBAGENTS_ONLY: 'ansi:magentaBright',
   cyan_FOR_SUBAGENTS_ONLY: 'ansi:cyan',
   // Grove colors
@@ -240,7 +240,7 @@ const lightAnsiTheme: Theme = {
   // Chrome colors
   chromeYellow: 'ansi:yellow', // Chrome yellow
   // TUI V2 colors
-  clawd_body: 'ansi:redBright',
+  clawd_body: 'ansi:greenBright',
   clawd_background: 'ansi:black',
   userMessageBackground: 'ansi:white',
   userMessageBackgroundHover: 'ansi:whiteBright',
@@ -252,17 +252,17 @@ const lightAnsiTheme: Theme = {
   rate_limit_fill: 'ansi:yellow',
   rate_limit_empty: 'ansi:black',
   fastMode: 'ansi:red',
-  fastModeShimmer: 'ansi:redBright',
+  fastModeShimmer: 'ansi:greenBright',
   briefLabelYou: 'ansi:blue',
-  briefLabelChangfenhuang: 'ansi:redBright',
+  briefLabelChangfenhuang: 'ansi:greenBright',
   rainbow_red: 'ansi:red',
-  rainbow_orange: 'ansi:redBright',
+  rainbow_orange: 'ansi:greenBright',
   rainbow_yellow: 'ansi:yellow',
   rainbow_green: 'ansi:green',
   rainbow_blue: 'ansi:cyan',
   rainbow_indigo: 'ansi:blue',
   rainbow_violet: 'ansi:magenta',
-  rainbow_red_shimmer: 'ansi:redBright',
+  rainbow_red_shimmer: 'ansi:greenBright',
   rainbow_orange_shimmer: 'ansi:yellow',
   rainbow_yellow_shimmer: 'ansi:yellowBright',
   rainbow_green_shimmer: 'ansi:greenBright',
@@ -278,7 +278,7 @@ const lightAnsiTheme: Theme = {
 const darkAnsiTheme: Theme = {
   autoAccept: 'ansi:magentaBright',
   bashBorder: 'ansi:magentaBright',
-  changfenhuang: 'ansi:redBright',
+  changfenhuang: 'ansi:greenBright',
   changfenhuangShimmer: 'ansi:yellowBright',
   changfenhuangBlue_FOR_SYSTEM_SPINNER: 'ansi:blueBright',
   changfenhuangBlueShimmer_FOR_SYSTEM_SPINNER: 'ansi:blueBright',
@@ -297,7 +297,7 @@ const darkAnsiTheme: Theme = {
   remember: 'ansi:blueBright',
   background: 'ansi:cyanBright',
   success: 'ansi:greenBright',
-  error: 'ansi:redBright',
+  error: 'ansi:greenBright',
   warning: 'ansi:yellowBright',
   merged: 'ansi:magentaBright',
   warningShimmer: 'ansi:yellowBright',
@@ -306,14 +306,14 @@ const darkAnsiTheme: Theme = {
   diffAddedDimmed: 'ansi:green',
   diffRemovedDimmed: 'ansi:red',
   diffAddedWord: 'ansi:greenBright',
-  diffRemovedWord: 'ansi:redBright',
+  diffRemovedWord: 'ansi:greenBright',
   // Agent colors
-  red_FOR_SUBAGENTS_ONLY: 'ansi:redBright',
+  red_FOR_SUBAGENTS_ONLY: 'ansi:greenBright',
   blue_FOR_SUBAGENTS_ONLY: 'ansi:blueBright',
   green_FOR_SUBAGENTS_ONLY: 'ansi:greenBright',
   yellow_FOR_SUBAGENTS_ONLY: 'ansi:yellowBright',
   purple_FOR_SUBAGENTS_ONLY: 'ansi:magentaBright',
-  orange_FOR_SUBAGENTS_ONLY: 'ansi:redBright',
+  orange_FOR_SUBAGENTS_ONLY: 'ansi:greenBright',
   pink_FOR_SUBAGENTS_ONLY: 'ansi:magentaBright',
   cyan_FOR_SUBAGENTS_ONLY: 'ansi:cyanBright',
   // Grove colors
@@ -321,7 +321,7 @@ const darkAnsiTheme: Theme = {
   // Chrome colors
   chromeYellow: 'ansi:yellowBright', // Chrome yellow
   // TUI V2 colors
-  clawd_body: 'ansi:redBright',
+  clawd_body: 'ansi:greenBright',
   clawd_background: 'ansi:black',
   userMessageBackground: 'ansi:blackBright',
   userMessageBackgroundHover: 'ansi:white',
@@ -332,18 +332,18 @@ const darkAnsiTheme: Theme = {
   memoryBackgroundColor: 'ansi:blackBright',
   rate_limit_fill: 'ansi:yellow',
   rate_limit_empty: 'ansi:white',
-  fastMode: 'ansi:redBright',
-  fastModeShimmer: 'ansi:redBright',
+  fastMode: 'ansi:greenBright',
+  fastModeShimmer: 'ansi:greenBright',
   briefLabelYou: 'ansi:blueBright',
-  briefLabelChangfenhuang: 'ansi:redBright',
+  briefLabelChangfenhuang: 'ansi:greenBright',
   rainbow_red: 'ansi:red',
-  rainbow_orange: 'ansi:redBright',
+  rainbow_orange: 'ansi:greenBright',
   rainbow_yellow: 'ansi:yellow',
   rainbow_green: 'ansi:green',
   rainbow_blue: 'ansi:cyan',
   rainbow_indigo: 'ansi:blue',
   rainbow_violet: 'ansi:magenta',
-  rainbow_red_shimmer: 'ansi:redBright',
+  rainbow_red_shimmer: 'ansi:greenBright',
   rainbow_orange_shimmer: 'ansi:yellow',
   rainbow_yellow_shimmer: 'ansi:yellowBright',
   rainbow_green_shimmer: 'ansi:greenBright',
@@ -359,7 +359,7 @@ const darkAnsiTheme: Theme = {
 const lightDaltonizedTheme: Theme = {
   autoAccept: 'rgb(135,0,255)', // Electric violet
   bashBorder: 'rgb(0,102,204)', // Blue instead of pink
-  changfenhuang: 'rgb(255,153,51)', // Orange adjusted for deuteranopia
+  changfenhuang: 'rgb(119,200,120)', // Orange adjusted for deuteranopia
   changfenhuangShimmer: 'rgb(255,183,101)', // Lighter orange for shimmer effect
   changfenhuangBlue_FOR_SYSTEM_SPINNER: 'rgb(51,102,255)', // Bright blue for system spinner
   changfenhuangBlueShimmer_FOR_SYSTEM_SPINNER: 'rgb(101,152,255)', // Lighter bright blue for system spinner shimmer
@@ -402,7 +402,7 @@ const lightDaltonizedTheme: Theme = {
   // Chrome colors
   chromeYellow: 'rgb(251,188,4)', // Chrome yellow
   // TUI V2 colors
-  clawd_body: 'rgb(215,119,87)',
+  clawd_body: 'rgb(119,200,120)',
   clawd_background: 'rgb(0,0,0)',
   userMessageBackground: 'rgb(220, 220, 220)', // Slightly darker grey for optimal contrast
   userMessageBackgroundHover: 'rgb(232, 232, 232)', // ≥230 to quantize distinct from base at 256-color level
@@ -413,10 +413,10 @@ const lightDaltonizedTheme: Theme = {
   memoryBackgroundColor: 'rgb(230, 245, 250)',
   rate_limit_fill: 'rgb(51,102,255)', // Bright blue
   rate_limit_empty: 'rgb(23,46,114)', // Dark blue
-  fastMode: 'rgb(255,106,0)', // Electric orange (color-blind safe)
+  fastMode: 'rgb(255,106,0)', // Electric slime green (color-blind safe)
   fastModeShimmer: 'rgb(255,150,50)', // Lighter orange for shimmer
   briefLabelYou: 'rgb(37,99,235)', // Blue
-  briefLabelChangfenhuang: 'rgb(255,153,51)', // Orange adjusted for deuteranopia (matches changfenhuang)
+  briefLabelChangfenhuang: 'rgb(119,200,120)', // Orange adjusted for deuteranopia (matches changfenhuang)
   rainbow_red: 'rgb(235,95,87)',
   rainbow_orange: 'rgb(245,139,87)',
   rainbow_yellow: 'rgb(250,195,95)',
@@ -440,8 +440,8 @@ const lightDaltonizedTheme: Theme = {
 const darkTheme: Theme = {
   autoAccept: 'rgb(175,135,255)', // Electric violet
   bashBorder: 'rgb(253,93,177)', // Bright pink
-  changfenhuang: 'rgb(215,119,87)', // Changfenhuang orange
-  changfenhuangShimmer: 'rgb(235,159,127)', // Lighter changfenhuang orange for shimmer effect
+  changfenhuang: 'rgb(119,200,120)', // Changfenhuang slime green
+  changfenhuangShimmer: 'rgb(149,225,150)', // Lighter changfenhuang orange for shimmer effect
   changfenhuangBlue_FOR_SYSTEM_SPINNER: 'rgb(147,165,255)', // Blue for system spinner
   changfenhuangBlueShimmer_FOR_SYSTEM_SPINNER: 'rgb(177,195,255)', // Lighter blue for system spinner shimmer
   permission: 'rgb(177,185,249)', // Light blue-purple
@@ -483,7 +483,7 @@ const darkTheme: Theme = {
   // Chrome colors
   chromeYellow: 'rgb(251,188,4)', // Chrome yellow
   // TUI V2 colors
-  clawd_body: 'rgb(215,119,87)',
+  clawd_body: 'rgb(119,200,120)',
   clawd_background: 'rgb(0,0,0)',
   userMessageBackground: 'rgb(55, 55, 55)', // Lighter grey for better visual contrast
   userMessageBackgroundHover: 'rgb(70, 70, 70)',
@@ -494,10 +494,10 @@ const darkTheme: Theme = {
   memoryBackgroundColor: 'rgb(55, 65, 70)',
   rate_limit_fill: 'rgb(177,185,249)', // Light blue-purple
   rate_limit_empty: 'rgb(80,83,112)', // Medium blue-purple
-  fastMode: 'rgb(255,120,20)', // Electric orange for dark bg
-  fastModeShimmer: 'rgb(255,165,70)', // Lighter orange for shimmer
+  fastMode: 'rgb(119,200,120)', // Electric slime green for dark bg
+  fastModeShimmer: 'rgb(149,225,150)', // Lighter orange for shimmer
   briefLabelYou: 'rgb(122,180,232)', // Light blue
-  briefLabelChangfenhuang: 'rgb(215,119,87)', // Brand orange
+  briefLabelChangfenhuang: 'rgb(119,200,120)', // Brand slime green
   rainbow_red: 'rgb(235,95,87)',
   rainbow_orange: 'rgb(245,139,87)',
   rainbow_yellow: 'rgb(250,195,95)',
@@ -521,7 +521,7 @@ const darkTheme: Theme = {
 const darkDaltonizedTheme: Theme = {
   autoAccept: 'rgb(175,135,255)', // Electric violet
   bashBorder: 'rgb(51,153,255)', // Bright blue
-  changfenhuang: 'rgb(255,153,51)', // Orange adjusted for deuteranopia
+  changfenhuang: 'rgb(119,200,120)', // Orange adjusted for deuteranopia
   changfenhuangShimmer: 'rgb(255,183,101)', // Lighter orange for shimmer effect
   changfenhuangBlue_FOR_SYSTEM_SPINNER: 'rgb(153,204,255)', // Light blue for system spinner
   changfenhuangBlueShimmer_FOR_SYSTEM_SPINNER: 'rgb(183,224,255)', // Lighter blue for system spinner shimmer
@@ -564,7 +564,7 @@ const darkDaltonizedTheme: Theme = {
   // Chrome colors
   chromeYellow: 'rgb(251,188,4)', // Chrome yellow
   // TUI V2 colors
-  clawd_body: 'rgb(215,119,87)',
+  clawd_body: 'rgb(119,200,120)',
   clawd_background: 'rgb(0,0,0)',
   userMessageBackground: 'rgb(55, 55, 55)', // Lighter grey for better visual contrast
   userMessageBackgroundHover: 'rgb(70, 70, 70)',
@@ -575,10 +575,10 @@ const darkDaltonizedTheme: Theme = {
   memoryBackgroundColor: 'rgb(55, 65, 70)',
   rate_limit_fill: 'rgb(153,204,255)', // Light blue
   rate_limit_empty: 'rgb(69,92,115)', // Dark blue
-  fastMode: 'rgb(255,120,20)', // Electric orange for dark bg (color-blind safe)
-  fastModeShimmer: 'rgb(255,165,70)', // Lighter orange for shimmer
+  fastMode: 'rgb(119,200,120)', // Electric slime green for dark bg (color-blind safe)
+  fastModeShimmer: 'rgb(149,225,150)', // Lighter orange for shimmer
   briefLabelYou: 'rgb(122,180,232)', // Light blue
-  briefLabelChangfenhuang: 'rgb(255,153,51)', // Orange adjusted for deuteranopia (matches changfenhuang)
+  briefLabelChangfenhuang: 'rgb(119,200,120)', // Orange adjusted for deuteranopia (matches changfenhuang)
   rainbow_red: 'rgb(235,95,87)',
   rainbow_orange: 'rgb(245,139,87)',
   rainbow_yellow: 'rgb(250,195,95)',

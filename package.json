@@ -1,0 +1,31 @@
+{
+  "name": "changfenhuang-code",
+  "version": "2.1.88",
+  "description": "Changfenhuang Code is an agentic coding assistant that runs in your terminal.",
+  "bin": {
+    "cc": "package/cli.js",
+    "changfenhuang": "package/cli.js"
+  },
+  "files": [
+    "package/**",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "homepage": "https://github.com/taekchef/changfenhuang-code",
+  "bugs": {
+    "url": "https://github.com/taekchef/changfenhuang-code/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taekchef/changfenhuang-code.git"
+  },
+  "license": "SEE LICENSE IN README.md",
+  "scripts": {
+    "brand": "node scripts/patch-branding.mjs",
+    "brand:verify": "node scripts/verify-branding.mjs",
+    "test": "node --test tests/branding.test.mjs",
+    "prepack": "node scripts/patch-branding.mjs && node scripts/verify-branding.mjs"
+  }
+}

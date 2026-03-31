@@ -103,62 +103,120 @@ const replacements = [
   },
   {
     label: "standard mascot default pose",
-    search: 'default:{r1L:" ▐",r1E:"▛███▜",r1R:"▌",r2L:"▝▜",r2R:"▛▘"}',
-    replace: 'default:{r1L:" ▗",r1E:"▄▄▄▄▄",r1R:"▖",r2L:"▐",r2R:"▌"}',
+    searches: [
+      'default:{r1L:" ▐",r1E:"▛███▜",r1R:"▌",r2L:"▝▜",r2R:"▛▘"}',
+      'default:{r1L:" ▗",r1E:"▄▄▄▄▄",r1R:"▖",r2L:"▐",r2R:"▌"}',
+      'default:{r1L:"  ",r1E:".---.",r1R:"  ",r2L:" (",r2R:" )"}',
+    ],
+    replace: 'default:{r1L:"",r1E:".---.",r1R:"",r2L:"(",r2R:")"}',
     minCount: 1,
   },
   {
     label: "standard mascot look-left pose",
-    search: '"look-left":{r1L:" ▐",r1E:"▟███▟",r1R:"▌",r2L:"▝▜",r2R:"▛▘"}',
-    replace: '"look-left":{r1L:" ▗",r1E:"▄▄▄▄▄",r1R:"▖",r2L:"▐",r2R:"▌"}',
+    searches: [
+      '"look-left":{r1L:" ▐",r1E:"▟███▟",r1R:"▌",r2L:"▝▜",r2R:"▛▘"}',
+      '"look-left":{r1L:" ▗",r1E:"▄▄▄▄▄",r1R:"▖",r2L:"▐",r2R:"▌"}',
+      '"look-left":{r1L:"  ",r1E:".---.",r1R:"  ",r2L:" (",r2R:" )"}',
+    ],
+    replace: '"look-left":{r1L:"",r1E:".---.",r1R:"",r2L:"(",r2R:")"}',
     minCount: 1,
   },
   {
     label: "standard mascot look-right pose",
-    search: '"look-right":{r1L:" ▐",r1E:"▙███▙",r1R:"▌",r2L:"▝▜",r2R:"▛▘"}',
-    replace: '"look-right":{r1L:" ▗",r1E:"▄▄▄▄▄",r1R:"▖",r2L:"▐",r2R:"▌"}',
+    searches: [
+      '"look-right":{r1L:" ▐",r1E:"▙███▙",r1R:"▌",r2L:"▝▜",r2R:"▛▘"}',
+      '"look-right":{r1L:" ▗",r1E:"▄▄▄▄▄",r1R:"▖",r2L:"▐",r2R:"▌"}',
+      '"look-right":{r1L:"  ",r1E:".---.",r1R:"  ",r2L:" (",r2R:" )"}',
+    ],
+    replace: '"look-right":{r1L:"",r1E:".---.",r1R:"",r2L:"(",r2R:")"}',
     minCount: 1,
   },
   {
     label: "standard mascot arms-up pose",
-    search: '"arms-up":{r1L:"▗▟",r1E:"▛███▜",r1R:"▙▖",r2L:" ▜",r2R:"▛ "}',
-    replace: '"arms-up":{r1L:" ▗",r1E:"▄▄▄▄▄",r1R:"▖",r2L:"▐",r2R:"▌"}',
+    searches: [
+      '"arms-up":{r1L:"▗▟",r1E:"▛███▜",r1R:"▙▖",r2L:" ▜",r2R:"▛ "}',
+      '"arms-up":{r1L:" ▗",r1E:"▄▄▄▄▄",r1R:"▖",r2L:"▐",r2R:"▌"}',
+      '"arms-up":{r1L:"  ",r1E:".---.",r1R:"  ",r2L:" (",r2R:" )"}',
+    ],
+    replace: '"arms-up":{r1L:"",r1E:".---.",r1R:"",r2L:"(",r2R:")"}',
     minCount: 1,
   },
   {
     label: "apple mascot top silhouette",
-    search: 'default:" ▗   ▖ ","look-left":" ▘   ▘ ","look-right":" ▝   ▝ ","arms-up":" ▗   ▖ "',
-    replace: 'default:" ▄▄▄▄▄ ","look-left":" ▄▄▄▄▄ ","look-right":" ▄▄▄▄▄ ","arms-up":" ▄▄▄▄▄ "',
+    searches: [
+      'default:" ▗   ▖ ","look-left":" ▘   ▘ ","look-right":" ▝   ▝ ","arms-up":" ▗   ▖ "',
+      'default:" ▄▄▄▄▄ ","look-left":" ▄▄▄▄▄ ","look-right":" ▄▄▄▄▄ ","arms-up":" ▄▄▄▄▄ "',
+      'default:" .---. ","look-left":" .---. ","look-right":" .---. ","arms-up":" .---. "',
+    ],
+    replace: 'default:".---.","look-left":".---.","look-right":".---.","arms-up":".---."',
+    minCount: 1,
+  },
+  {
+    label: "apple mascot left edge",
+    search: 'bz.createElement(k,{color:"clawd_body"},"▗")',
+    replace: 'bz.createElement(k,{color:"clawd_body"},"")',
+    minCount: 1,
+  },
+  {
+    label: "apple mascot right edge",
+    search: 'bz.createElement(k,{color:"clawd_body"},"▖")',
+    replace: 'bz.createElement(k,{color:"clawd_body"},"")',
     minCount: 1,
   },
   {
     label: "mascot smile row",
-    search: "▘▘ ▝▝",
-    replace: "▝▄▄▄▘",
+    searches: ['P=bz.createElement(k,{color:"clawd_body"},{"  "}▘▘ ▝▝{"  "})', 'P=bz.createElement(k,{color:"clawd_body"},"  ","\\___/","  ")', 'P=bz.createElement(k,{color:"clawd_body"},"\\\\___/")'],
+    replace: 'P=bz.createElement(k,{color:"clawd_body"},"\\\\___/")',
+    minCount: 1,
+  },
+  {
+    label: "mascot face row",
+    searches: [
+      'backgroundColor:"clawd_background"},"█████")',
+      'backgroundColor:"clawd_background"}," o o ")',
+      'backgroundColor:"clawd_background"},"o o")',
+      'backgroundColor:"clawd_background"},"o_o")',
+    ],
+    replace: 'backgroundColor:"clawd_background"},"o_o")',
+    minCount: 1,
+  },
+  {
+    label: "apple mascot face row",
+    searches: [
+      'w=bz.createElement(k,{backgroundColor:"clawd_body"}," ".repeat(7)),j=bz.createElement(k,{color:"clawd_body"},"\\___/")',
+      'w=bz.createElement(k,{color:"clawd_background",backgroundColor:"clawd_body"},"o o"),j=bz.createElement(k,{color:"clawd_body"},"\\___/")',
+      'w=bz.createElement(k,{color:"clawd_background",backgroundColor:"clawd_body"},"o_o"),j=bz.createElement(k,{color:"clawd_body"},"\\\\___/")',
+    ],
+    replace:
+      'w=bz.createElement(k,{color:"clawd_background",backgroundColor:"clawd_body"},"o_o"),j=bz.createElement(k,{color:"clawd_body"},"\\\\___/")',
     minCount: 1,
   },
   {
     label: "welcome top and bottom silhouette",
-    search: " █████████ ",
-    replace: " ▄███████▄ ",
+    searches: [" █████████ ", " ▄███████▄ ", " (       ) ", "(_______)"],
+    replace: "(_______)",
     minCount: 1,
   },
   {
     label: "welcome middle silhouette",
-    search: "██▄█████▄██",
-    replace: " ▟███████▙ ",
+    searches: ["██▄█████▄██", " ▟███████▙ ", "(  o   o  )", "( o   o )", "(o_____o)"],
+    replace: "(o_____o)",
     minCount: 1,
   },
   {
     label: "welcome footer eyes",
-    search: "█ █   █ █",
-    replace: "▀ ▀   ▀ ▀",
+    searches: ["█ █   █ █", "▀ ▀   ▀ ▀", "  \\___/  ", " \\___/ ", " \\\\___/ "],
+    replace: " \\\\___/ ",
     minCount: 1,
   },
   {
     label: "apple welcome top fill",
-    search: 'backgroundColor:"clawd_body"}," ","▗","     ","▖"," "',
-    replace: 'backgroundColor:"clawd_body"}," ","▄▄▄▄▄"," "',
+    searches: [
+      'backgroundColor:"clawd_body"}," ","▗","     ","▖"," "',
+      'backgroundColor:"clawd_body"}," ","▄▄▄▄▄"," "',
+      'backgroundColor:"clawd_body"}," ",".---."," "',
+    ],
+    replace: 'backgroundColor:"clawd_body"},".---."',
     minCount: 1,
   },
   {
@@ -197,17 +255,23 @@ const replacements = [
   },
 ];
 
-function replaceAll(source, search, replace) {
-  const count = source.split(search).length - 1;
+function replacePatterns(source, searches, replace) {
+  let output = source;
+  let count = 0;
 
-  if (count === 0) {
-    return { changed: false, count: 0, output: source };
+  for (const search of searches) {
+    const matches = output.split(search).length - 1;
+
+    if (matches > 0) {
+      output = output.split(search).join(replace);
+      count += matches;
+    }
   }
 
   return {
-    changed: true,
+    changed: count > 0,
     count,
-    output: source.split(search).join(replace),
+    output,
   };
 }
 
@@ -215,12 +279,13 @@ let code = fs.readFileSync(cliPath, "utf8");
 let changed = false;
 
 for (const replacement of replacements) {
-  const result = replaceAll(code, replacement.search, replacement.replace);
+  const searches = replacement.searches ?? [replacement.search];
+  const result = replacePatterns(code, searches, replacement.replace);
 
   if (!result.changed) {
     if (!code.includes(replacement.replace)) {
       throw new Error(
-        `Missing expected pattern for ${replacement.label}: ${replacement.search}`,
+        `Missing expected pattern for ${replacement.label}: ${searches.join(" | ")}`,
       );
     }
 

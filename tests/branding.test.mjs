@@ -91,19 +91,22 @@ test("runtime bundle uses the slime palette and mascot art", () => {
   assert.match(cliSource, /clawd_body:"rgb\(119,200,120\)"/);
   assert.match(
     cliSource,
-    /default:\{r1L:" ▗",r1E:"▄▄▄▄▄",r1R:"▖",r2L:"▐",r2R:"▌"\}/,
+    /default:\{r1L:"",r1E:"\.---\.",r1R:"",r2L:"\(",r2R:"\)"\}/,
   );
-  assert.match(cliSource, /" ▄███████▄ "/);
-  assert.match(cliSource, /" ▟███████▙ "/);
-  assert.match(cliSource, /"▀ ▀   ▀ ▀"/);
+  assert.match(cliSource, /backgroundColor:"clawd_background"},"o_o"\)/);
+  assert.match(cliSource, /"\\\\___\/"/);
+  assert.match(cliSource, /default:"\.---\.","look-left":"\.---\.","look-right":"\.---\.","arms-up":"\.---\."/,);
+  assert.match(cliSource, /backgroundColor:"clawd_body"},"o_o"\),j=bz\.createElement\(k,\{color:"clawd_body"\},"\\\\___\/"/);
+  assert.match(cliSource, /"\(_______\)"/);
+  assert.match(cliSource, /"\(o_____o\)"/);
+  assert.match(cliSource, /" \\\\___\/ "/);
 
   assert.doesNotMatch(cliSource, /claude:"rgb\(215,119,87\)"/);
   assert.doesNotMatch(cliSource, /clawd_body:"rgb\(215,119,87\)"/);
-  assert.doesNotMatch(
-    cliSource,
-    /default:\{r1L:" ▐",r1E:"▛███▜",r1R:"▌",r2L:"▝▜",r2R:"▛▘"\}/,
-  );
-  assert.doesNotMatch(cliSource, /"██▄█████▄██"/);
+  assert.doesNotMatch(cliSource, /default:\{r1L:" ▗",r1E:"▄▄▄▄▄",r1R:"▖",r2L:"▐",r2R:"▌"\}/);
+  assert.doesNotMatch(cliSource, /default:\{r1L:" ▐",r1E:"▛███▜",r1R:"▌",r2L:"▝▜",r2R:"▛▘"\}/);
+  assert.doesNotMatch(cliSource, /" ▟███████▙ "/);
+  assert.doesNotMatch(cliSource, /"▀ ▀   ▀ ▀"/);
 });
 
 test("runtime bundle unlocks the hidden commands that still exist in this build", () => {

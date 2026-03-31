@@ -64,6 +64,102 @@ const replacements = [
     search: "Copy Claude's last response to clipboard (or /copy N for the Nth-latest)",
     replace: "Copy Changfenhuang Code's last response to clipboard (or /copy N for the Nth-latest)",
     minCount: 1,
+  },
+  {
+    label: "brand primary rgb",
+    search: "rgb(215,119,87)",
+    replace: "rgb(119,200,120)",
+    minCount: 1,
+  },
+  {
+    label: "brand shimmer rgb",
+    search: "rgb(245,149,117)",
+    replace: "rgb(149,225,150)",
+    minCount: 1,
+  },
+  {
+    label: "brand fallback hex",
+    search: "#da7756",
+    replace: "#77c878",
+    minCount: 1,
+  },
+  {
+    label: "ansi primary theme",
+    search: 'claude:"ansi:redBright"',
+    replace: 'claude:"ansi:greenBright"',
+    minCount: 1,
+  },
+  {
+    label: "ansi mascot theme",
+    search: 'clawd_body:"ansi:redBright"',
+    replace: 'clawd_body:"ansi:greenBright"',
+    minCount: 1,
+  },
+  {
+    label: "ansi brief label theme",
+    search: 'briefLabelClaude:"ansi:redBright"',
+    replace: 'briefLabelClaude:"ansi:greenBright"',
+    minCount: 1,
+  },
+  {
+    label: "standard mascot default pose",
+    search: 'default:{r1L:" ▐",r1E:"▛███▜",r1R:"▌",r2L:"▝▜",r2R:"▛▘"}',
+    replace: 'default:{r1L:" ▗",r1E:"▄▄▄▄▄",r1R:"▖",r2L:"▐",r2R:"▌"}',
+    minCount: 1,
+  },
+  {
+    label: "standard mascot look-left pose",
+    search: '"look-left":{r1L:" ▐",r1E:"▟███▟",r1R:"▌",r2L:"▝▜",r2R:"▛▘"}',
+    replace: '"look-left":{r1L:" ▗",r1E:"▄▄▄▄▄",r1R:"▖",r2L:"▐",r2R:"▌"}',
+    minCount: 1,
+  },
+  {
+    label: "standard mascot look-right pose",
+    search: '"look-right":{r1L:" ▐",r1E:"▙███▙",r1R:"▌",r2L:"▝▜",r2R:"▛▘"}',
+    replace: '"look-right":{r1L:" ▗",r1E:"▄▄▄▄▄",r1R:"▖",r2L:"▐",r2R:"▌"}',
+    minCount: 1,
+  },
+  {
+    label: "standard mascot arms-up pose",
+    search: '"arms-up":{r1L:"▗▟",r1E:"▛███▜",r1R:"▙▖",r2L:" ▜",r2R:"▛ "}',
+    replace: '"arms-up":{r1L:" ▗",r1E:"▄▄▄▄▄",r1R:"▖",r2L:"▐",r2R:"▌"}',
+    minCount: 1,
+  },
+  {
+    label: "apple mascot top silhouette",
+    search: 'default:" ▗   ▖ ","look-left":" ▘   ▘ ","look-right":" ▝   ▝ ","arms-up":" ▗   ▖ "',
+    replace: 'default:" ▄▄▄▄▄ ","look-left":" ▄▄▄▄▄ ","look-right":" ▄▄▄▄▄ ","arms-up":" ▄▄▄▄▄ "',
+    minCount: 1,
+  },
+  {
+    label: "mascot smile row",
+    search: "▘▘ ▝▝",
+    replace: "▝▄▄▄▘",
+    minCount: 1,
+  },
+  {
+    label: "welcome top and bottom silhouette",
+    search: " █████████ ",
+    replace: " ▄███████▄ ",
+    minCount: 1,
+  },
+  {
+    label: "welcome middle silhouette",
+    search: "██▄█████▄██",
+    replace: " ▟███████▙ ",
+    minCount: 1,
+  },
+  {
+    label: "welcome footer eyes",
+    search: "█ █   █ █",
+    replace: "▀ ▀   ▀ ▀",
+    minCount: 1,
+  },
+  {
+    label: "apple welcome top fill",
+    search: 'backgroundColor:"clawd_body"}," ","▗","     ","▖"," "',
+    replace: 'backgroundColor:"clawd_body"}," ","▄▄▄▄▄"," "',
+    minCount: 1,
   }
 ];
 

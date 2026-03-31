@@ -83,6 +83,29 @@ test("distribution does not ship an unused cli sourcemap", () => {
   );
 });
 
+test("runtime bundle uses the slime palette and mascot art", () => {
+  const cliSource = fs.readFileSync(cliPath, "utf8");
+
+  assert.match(cliSource, /claude:"rgb\(119,200,120\)"/);
+  assert.match(cliSource, /claudeShimmer:"rgb\(149,225,150\)"/);
+  assert.match(cliSource, /clawd_body:"rgb\(119,200,120\)"/);
+  assert.match(
+    cliSource,
+    /default:\{r1L:" ▗",r1E:"▄▄▄▄▄",r1R:"▖",r2L:"▐",r2R:"▌"\}/,
+  );
+  assert.match(cliSource, /" ▄███████▄ "/);
+  assert.match(cliSource, /" ▟███████▙ "/);
+  assert.match(cliSource, /"▀ ▀   ▀ ▀"/);
+
+  assert.doesNotMatch(cliSource, /claude:"rgb\(215,119,87\)"/);
+  assert.doesNotMatch(cliSource, /clawd_body:"rgb\(215,119,87\)"/);
+  assert.doesNotMatch(
+    cliSource,
+    /default:\{r1L:" ▐",r1E:"▛███▜",r1R:"▌",r2L:"▝▜",r2R:"▛▘"\}/,
+  );
+  assert.doesNotMatch(cliSource, /"██▄█████▄██"/);
+});
+
 test("install script prints the GitHub tarball install command", () => {
   const result = spawnSync("bash", [installScriptPath, "--print-command"], {
     cwd: repoRoot,

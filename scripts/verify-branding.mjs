@@ -38,6 +38,7 @@ function withLinkedCommand(commandName, callback) {
 const pkg = JSON.parse(
   fs.readFileSync(path.join(repoRoot, "package.json"), "utf8"),
 );
+const cliSource = fs.readFileSync(cliPath, "utf8");
 
 assert.equal(pkg.bin.cc, "package/cli.js");
 assert.equal(pkg.bin.changfenhuang, "package/cli.js");
@@ -54,5 +55,22 @@ assert.match(helpOutput, /Changfenhuang Code - starts an interactive session by 
 assert.doesNotMatch(helpOutput, /\bClaude Code\b/);
 assert.match(versionOutput, /Changfenhuang Code/);
 assert.doesNotMatch(versionOutput, /\bClaude Code\b/);
+assert.match(cliSource, /claude:"rgb\(119,200,120\)"/);
+assert.match(cliSource, /claudeShimmer:"rgb\(149,225,150\)"/);
+assert.match(cliSource, /clawd_body:"rgb\(119,200,120\)"/);
+assert.match(
+  cliSource,
+  /default:\{r1L:" ▗",r1E:"▄▄▄▄▄",r1R:"▖",r2L:"▐",r2R:"▌"\}/,
+);
+assert.match(cliSource, /" ▄███████▄ "/);
+assert.match(cliSource, /" ▟███████▙ "/);
+assert.match(cliSource, /"▀ ▀   ▀ ▀"/);
+assert.doesNotMatch(cliSource, /claude:"rgb\(215,119,87\)"/);
+assert.doesNotMatch(cliSource, /clawd_body:"rgb\(215,119,87\)"/);
+assert.doesNotMatch(
+  cliSource,
+  /default:\{r1L:" ▐",r1E:"▛███▜",r1R:"▌",r2L:"▝▜",r2R:"▛▘"\}/,
+);
+assert.doesNotMatch(cliSource, /"██▄█████▄██"/);
 
 console.log("Branding verification passed");

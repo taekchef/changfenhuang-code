@@ -8,6 +8,8 @@ import { spawnSync } from "node:child_process";
 const repoRoot = process.cwd();
 const rootPackageJsonPath = path.join(repoRoot, "package.json");
 const cliPath = path.join(repoRoot, "package", "cli.js");
+const readmePath = path.join(repoRoot, "README.md");
+const installScriptPath = path.join(repoRoot, "install.sh");
 
 function runCommand(commandPath, args) {
   const result = spawnSync(commandPath, args, {
@@ -78,5 +80,31 @@ test("distribution does not ship an unused cli sourcemap", () => {
     fs.existsSync(cliSourceMapPath),
     false,
     "Expected package/cli.js.map to be absent so GitHub installs do not carry a huge unused file",
+  );
+});
+
+test("install script prints the GitHub tarball install command", () => {
+  const result = spawnSync("bash", [installScriptPath, "--print-command"], {
+    cwd: repoRoot,
+    encoding: "utf8",
+  });
+
+  assert.equal(
+    result.status,
+    0,
+    `Expected install.sh --print-command to succeed\nSTDOUT:\n${result.stdout}\nSTDERR:\n${result.stderr}`,
+  );
+  assert.match(
+    result.stdout,
+    /^npm install -g https:\/\/codeload\.github\.com\/taekchef\/changfenhuang-code\/tar\.gz\/main\s*$/m,
+  );
+});
+
+test("README leads with the one-line install script flow", () => {
+  const readme = fs.readFileSync(readmePath, "utf8");
+
+  assert.match(
+    readme,
+    /curl -fsSL https:\/\/raw\.githubusercontent\.com\/taekchef\/changfenhuang-code\/main\/install\.sh \| bash/,
   );
 });

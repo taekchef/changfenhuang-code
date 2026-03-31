@@ -20,11 +20,48 @@
 
 ---
 
+## 3 秒安装
+
+### 立即开跑
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/taekchef/changfenhuang-code/main/install.sh | bash
+```
+
+装完先试：
+
+```bash
+changfenhuang --version
+cc --version
+```
+
+如果 `cc` 还命中系统自带的 C 编译器，执行一次：
+
+```bash
+rehash
+```
+
+然后再试：
+
+```bash
+cc --version
+```
+
+---
+
 ## 现在已经能跑了
 
 ### 安装
 
-#### 1. 推荐：直接从 GitHub tarball 安装
+#### 1. 推荐：一键安装脚本
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/taekchef/changfenhuang-code/main/install.sh | bash
+```
+
+它本质上还是走 GitHub tarball 安装，但把长命令和环境检查都包好了。
+
+#### 2. 直接从 GitHub tarball 安装
 
 ```bash
 npm install -g https://codeload.github.com/taekchef/changfenhuang-code/tar.gz/main
@@ -33,7 +70,7 @@ npm install -g https://codeload.github.com/taekchef/changfenhuang-code/tar.gz/ma
 这一条比 `github:taekchef/changfenhuang-code` 更稳。
 在部分自定义 `npm prefix` 环境里，`github:` 安装会生成坏掉的全局软链；tarball 方式不会踩这个坑。
 
-#### 2. 本地克隆后全局安装
+#### 3. 本地克隆后全局安装
 
 ```bash
 git clone https://github.com/taekchef/changfenhuang-code.git
@@ -55,18 +92,6 @@ changfenhuang
 ```bash
 cc --help
 changfenhuang --version
-```
-
-如果你刚装完发现 `cc` 还是命中系统自带的 C 编译器，可以先执行一次：
-
-```bash
-rehash
-```
-
-然后再试：
-
-```bash
-cc --version
 ```
 
 ### 环境要求

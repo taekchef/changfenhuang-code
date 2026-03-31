@@ -5,6 +5,12 @@ This directory contains the runnable bundled CLI used by the root `changfenhuang
 If you want the installable CLI, use the repository root:
 
 ```bash
+curl -fsSL https://raw.githubusercontent.com/taekchef/changfenhuang-code/main/install.sh | bash
+```
+
+Or use the GitHub tarball directly:
+
+```bash
 npm install -g https://codeload.github.com/taekchef/changfenhuang-code/tar.gz/main
 ```
 

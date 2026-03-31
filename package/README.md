@@ -5,6 +5,12 @@ This directory contains the runnable bundled CLI used by the root `changfenhuang
 If you want the installable CLI, use the repository root:
 
 ```bash
+npm install -g https://codeload.github.com/taekchef/changfenhuang-code/tar.gz/main
+```
+
+If you already cloned the repository locally, this also works:
+
+```bash
 npm install -g /path/to/changfenhuang-code
 ```
 

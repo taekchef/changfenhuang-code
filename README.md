@@ -24,11 +24,14 @@
 
 ### 安装
 
-#### 1. 直接从 GitHub 安装
+#### 1. 推荐：直接从 GitHub tarball 安装
 
 ```bash
-npm install -g github:taekchef/changfenhuang-code
+npm install -g https://codeload.github.com/taekchef/changfenhuang-code/tar.gz/main
 ```
+
+这一条比 `github:taekchef/changfenhuang-code` 更稳。
+在部分自定义 `npm prefix` 环境里，`github:` 安装会生成坏掉的全局软链；tarball 方式不会踩这个坑。
 
 #### 2. 本地克隆后全局安装
 
@@ -52,6 +55,18 @@ changfenhuang
 ```bash
 cc --help
 changfenhuang --version
+```
+
+如果你刚装完发现 `cc` 还是命中系统自带的 C 编译器，可以先执行一次：
+
+```bash
+rehash
+```
+
+然后再试：
+
+```bash
+cc --version
 ```
 
 ### 环境要求

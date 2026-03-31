@@ -14,6 +14,10 @@
 
 这次仓库整理之后，它已经不再是“只能看还原源码”的研究仓库，而是一个真的可以安装、真的可以在终端里运行的 `Changfenhuang Code`。
 
+一句话说人话：
+
+> 这是一个把 Claude Code 里当前 bundle 还能打开的隐藏功能、实验开关、内部权限分支，基本全开了的绿色史莱姆版 CLI。
+
 ---
 
 ## 现在已经能跑了
@@ -121,6 +125,20 @@ Buddy 系统内置 18 种宠物可选：
 
 ## 源码修改清单
 
+### 先说结论：是不是“全隐藏功能解锁”？
+
+可以这么说，而且 README 就应该把这个气势写出来。
+
+但技术上更准确的版本是：
+
+- 对当前 bundle 里还活着的隐藏功能、实验开关、内部权限分支，基本就是全开
+- 对 `feature()`、GrowthBook gate、内部用户身份判断、隐藏命令显示、运行时 disable 开关，都做了放开
+- 但如果某些功能在上游构建时已经被 DCE / tree-shaking 物理裁掉了，运行时补丁没法把“根本不存在的代码”凭空变回来
+
+所以这个项目的真实意思不是“魔法复活所有历史上存在过的代码”，而是：
+
+> 把这个版本里还能解锁的隐藏能力，尽可能全部解锁出来。
+
 ### 品牌替换
 
 - 886 个文件中的 `claude` / `anthropic` -> `changfenhuang`
@@ -128,7 +146,7 @@ Buddy 系统内置 18 种宠物可选：
 
 ### 编译期功能（`feature()` 门控）
 
-全部 `feature('XXX')` -> `true`，包括：
+对当前 bundle 中仍然存在的 `feature('XXX')` 门控，全部改成 `true`，包括：
 
 | Flag | 说明 |
 |:---|:---|
@@ -147,7 +165,7 @@ Buddy 系统内置 18 种宠物可选：
 
 ### GrowthBook 运行时门控
 
-在 `growthbook.ts` 中注入全局 override map，30+ 个门控强制开启：
+在 `growthbook.ts` 中注入全局 override map，把 30+ 个运行时 gate 强制开启：
 
 <details>
 <summary>点击展开完整列表</summary>
@@ -197,9 +215,27 @@ Buddy 系统内置 18 种宠物可选：
 | `modelSupportsAutoMode()` | 移除内部用户限制 |
 | 79 个文件中的 `USER_TYPE === 'ant'` | -> `true` |
 
+### 运行时限制也一起拆了
+
+除了编译期和 gate 层，这个版本还把一批“默认关闭”的运行时限制一起拆掉了，核心方向就是：
+
+- Fast Mode 不再受默认 disable 变量限制
+- 1M context 不再受默认 disable 变量限制
+- Thinking / Adaptive Thinking 不再受默认 disable 变量限制
+- Background tasks / Auto memory / Cron 不再受默认 disable 变量限制
+- Experimental betas / File checkpointing / Advisor tool / Attachments 不再受默认 disable 变量限制
+
 ### 隐藏命令（已取消隐藏）
 
 `/ultraplan` · `/buddy` · `/voice` · `/bridge` · `/torch` · `/peers` · `/fork` · `/thinkback-play` · `/output-style` · `/heapdump` · `/rate-limit-options`
+
+### 最后再说一遍这项目到底猛在哪
+
+如果你只是想一句话理解这个仓库，那就是：
+
+- 它不是单纯换皮
+- 它也不是只把 README 改绿
+- 它是把这个版本里还能打得开的隐藏层，能开的都开了，再把整个东西整理成一个真的能安装运行的开源 CLI
 
 ---
 

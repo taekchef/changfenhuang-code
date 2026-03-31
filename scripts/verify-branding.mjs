@@ -72,5 +72,22 @@ assert.doesNotMatch(
   /default:\{r1L:" ▐",r1E:"▛███▜",r1R:"▌",r2L:"▝▜",r2R:"▛▘"\}/,
 );
 assert.doesNotMatch(cliSource, /"██▄█████▄██"/);
+assert.match(cliSource, /name:"ultraplan"[\s\S]{0,220}isEnabled:\(\)=>!0/);
+assert.match(
+  cliSource,
+  /name:"voice"[\s\S]{0,220}availability:void 0[\s\S]{0,120}isEnabled:\(\)=>!0[\s\S]{0,120}get isHidden\(\)\{return!1\}/,
+);
+assert.match(
+  cliSource,
+  /name:"rate-limit-options"[\s\S]{0,220}isEnabled:\(\)=>!0[\s\S]{0,80}isHidden:!1/,
+);
+assert.match(
+  cliSource,
+  /name:"thinkback-play"[\s\S]{0,220}isEnabled:\(\)=>!0[\s\S]{0,80}isHidden:!1/,
+);
+assert.match(
+  cliSource,
+  /name:"remote-control"[\s\S]{0,120}aliases:\["rc","bridge"\]/,
+);
 
 console.log("Branding verification passed");

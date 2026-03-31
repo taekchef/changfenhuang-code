@@ -160,7 +160,41 @@ const replacements = [
     search: 'backgroundColor:"clawd_body"}," ","▗","     ","▖"," "',
     replace: 'backgroundColor:"clawd_body"}," ","▄▄▄▄▄"," "',
     minCount: 1,
-  }
+  },
+  {
+    label: "ultraplan command gate",
+    search: 'argumentHint:"<prompt>",isEnabled:()=>!1,load:',
+    replace: 'argumentHint:"<prompt>",isEnabled:()=>!0,load:',
+    minCount: 1,
+  },
+  {
+    label: "voice command availability and visibility",
+    search: 'availability:["claude-ai"],isEnabled:()=>gK6(),get isHidden(){return!KH6()},supportsNonInteractive:!1,load:',
+    replace:
+      'availability:void 0,isEnabled:()=>!0,get isHidden(){return!1},supportsNonInteractive:!1,load:',
+    minCount: 1,
+  },
+  {
+    label: "rate limit options command gate",
+    search: 'name:"rate-limit-options",description:"Show options when rate limit is reached",isEnabled:()=>{if(!d7())return!1;return!0},isHidden:!0,load:',
+    replace:
+      'name:"rate-limit-options",description:"Show options when rate limit is reached",isEnabled:()=>!0,isHidden:!1,load:',
+    minCount: 1,
+  },
+  {
+    label: "thinkback play command gate",
+    search: 'name:"thinkback-play",description:"Play the thinkback animation",isEnabled:()=>tY("tengu_thinkback"),isHidden:!0,supportsNonInteractive:!1,load:',
+    replace:
+      'name:"thinkback-play",description:"Play the thinkback animation",isEnabled:()=>!0,isHidden:!1,supportsNonInteractive:!1,load:',
+    minCount: 1,
+  },
+  {
+    label: "remote control bridge alias",
+    search: 'name:"remote-control",aliases:["rc"],description:"Connect this terminal for remote-control sessions"',
+    replace:
+      'name:"remote-control",aliases:["rc","bridge"],description:"Connect this terminal for remote-control sessions"',
+    minCount: 1,
+  },
 ];
 
 function replaceAll(source, search, replace) {

@@ -16,7 +16,7 @@
 
 一句话说人话：
 
-> 这是一个把 Claude Code 里当前 bundle 还能打开的隐藏功能、实验开关、内部权限分支，基本全开了的绿色史莱姆版 CLI。
+> 这是一个把 Claude Code 里当前 bundle 还能打开的隐藏功能、实验开关、内部权限分支，尽量都放开了的绿色史莱姆版 CLI。
 
 ---
 
@@ -265,9 +265,31 @@ Buddy 系统内置 18 种宠物可选：
 - Background tasks / Auto memory / Cron 不再受默认 disable 变量限制
 - Experimental betas / File checkpointing / Advisor tool / Attachments 不再受默认 disable 变量限制
 
-### 隐藏命令（已取消隐藏）
+### 当前这份可运行 bundle 里，slash 命令要分 3 类看
 
-`/ultraplan` · `/buddy` · `/voice` · `/bridge` · `/torch` · `/peers` · `/fork` · `/thinkback-play` · `/output-style` · `/heapdump` · `/rate-limit-options`
+#### 1. 当前 bundle 里还留着入口，我也把注册门控放开了
+
+`/ultraplan` · `/voice` · `/thinkback-play` · `/rate-limit-options`
+
+这一类现在不该再报 `Unknown skill`。
+但它们能不能一路跑到底，还是要看各自运行条件，比如 web 会话、音频依赖、登录态、权限环境。
+
+#### 2. 当前 bundle 本来就有，只是名字和运行模式要按真实实现理解
+
+`/output-style` · `/heapdump`
+
+`/output-style` 是 `local-jsx` 命令，交互模式能用；如果你用 `-p/--print` 非交互模式去敲，它会被过滤掉，然后看起来像 `Unknown skill`。
+
+`/remote-control` · `/rc` · `/bridge`
+
+真正的命令名一直是 `/remote-control`，`/rc` 是原始别名；现在额外补了一个 `/bridge` 兼容别名，这样 README 里的叫法和实际输入也统一了。
+
+#### 3. 还原源码里能看到痕迹，但当前 bundle 根本没打进命令入口
+
+`/buddy` · `/fork` · `/peers` · `/torch`
+
+这几条不是“门锁着了”，而是当前这份可运行 bundle 里就没有对应 slash command 对象。
+所以它们不能只靠 runtime patch 凭空复活，真想拉起来得回到更完整的源码和构建链路。
 
 ### 最后再说一遍这项目到底猛在哪
 

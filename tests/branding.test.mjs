@@ -106,6 +106,28 @@ test("runtime bundle uses the slime palette and mascot art", () => {
   assert.doesNotMatch(cliSource, /"██▄█████▄██"/);
 });
 
+test("runtime bundle unlocks the hidden commands that still exist in this build", () => {
+  const cliSource = fs.readFileSync(cliPath, "utf8");
+
+  assert.match(cliSource, /name:"ultraplan"[\s\S]{0,220}isEnabled:\(\)=>!0/);
+  assert.match(
+    cliSource,
+    /name:"voice"[\s\S]{0,220}availability:void 0[\s\S]{0,120}isEnabled:\(\)=>!0[\s\S]{0,120}get isHidden\(\)\{return!1\}/,
+  );
+  assert.match(
+    cliSource,
+    /name:"rate-limit-options"[\s\S]{0,220}isEnabled:\(\)=>!0[\s\S]{0,80}isHidden:!1/,
+  );
+  assert.match(
+    cliSource,
+    /name:"thinkback-play"[\s\S]{0,220}isEnabled:\(\)=>!0[\s\S]{0,80}isHidden:!1/,
+  );
+  assert.match(
+    cliSource,
+    /name:"remote-control"[\s\S]{0,120}aliases:\["rc","bridge"\]/,
+  );
+});
+
 test("install script prints the GitHub tarball install command", () => {
   const result = spawnSync("bash", [installScriptPath, "--print-command"], {
     cwd: repoRoot,
@@ -129,5 +151,24 @@ test("README leads with the one-line install script flow", () => {
   assert.match(
     readme,
     /curl -fsSL https:\/\/raw\.githubusercontent\.com\/taekchef\/changfenhuang-code\/main\/install\.sh \| bash/,
+  );
+});
+
+test("README describes hidden slash commands by real bundle status", () => {
+  const readme = fs.readFileSync(readmePath, "utf8");
+
+  assert.doesNotMatch(readme, /### 隐藏命令（已取消隐藏）/);
+  assert.match(readme, /### 当前这份可运行 bundle 里，slash 命令要分 3 类看/);
+  assert.match(
+    readme,
+    /`\/ultraplan` · `\/voice` · `\/thinkback-play` · `\/rate-limit-options`/,
+  );
+  assert.match(
+    readme,
+    /`\/remote-control` · `\/rc` · `\/bridge`/,
+  );
+  assert.match(
+    readme,
+    /#### 3\. 还原源码里能看到痕迹，但当前 bundle 根本没打进命令入口[\s\S]{0,220}`\/buddy` · `\/fork` · `\/peers` · `\/torch`/,
   );
 });
